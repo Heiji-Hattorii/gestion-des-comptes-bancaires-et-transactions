@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Client extends Personne {
     private String idClient;
@@ -33,4 +34,9 @@ public class Client extends Personne {
         comptes.remove(compte);
     }
 
+    public Optional<Compte> rechercherCompteParId(String idCompte) {
+        return comptes.stream()
+                .filter(c -> c.getIdCompte().equals(idCompte))
+                .findFirst();
+    }
 }
