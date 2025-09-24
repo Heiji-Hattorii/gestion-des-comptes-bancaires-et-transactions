@@ -61,4 +61,9 @@ public class Compte {
     public void supprimerTransaction(Transaction transaction) {
         transactions.remove(transaction);
     }
+    public List<Transaction> filtrerTransactions(java.util.function.Predicate<Transaction> predicate) {
+        return transactions.stream()
+                .filter(predicate)
+                .collect(java.util.stream.Collectors.toList());
+    }
 }
