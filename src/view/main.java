@@ -456,8 +456,7 @@ public class Main {
     }
 
     public static void creerClient(ClientController clientController, Scanner scanner) {
-        System.out.print("ID du client : ");
-        String id = scanner.nextLine();
+
         System.out.print("Nom : ");
         String nom = scanner.nextLine();
         System.out.print("Prénom : ");
@@ -467,7 +466,7 @@ public class Main {
         System.out.print("Mot de passe : ");
         String mdp = scanner.nextLine();
 
-        Client client = new Client(id, nom, prenom, email, mdp);
+        Client client = new Client( nom, prenom, email, mdp);
         clientController.creerClient(client);
         System.out.println("Client créé avec succès.");
     }

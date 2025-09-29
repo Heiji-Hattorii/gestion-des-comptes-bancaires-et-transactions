@@ -3,14 +3,16 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Client extends Personne {
     private String idClient;
     private List<Compte> comptes;
+    private static final AtomicInteger compteur = new AtomicInteger(1);
 
-    public Client(String idClient, String nom, String prenom, String email, String motDePasse) {
+    public Client( String nom, String prenom, String email, String motDePasse) {
         super(nom, prenom, email, motDePasse);
-        this.idClient = idClient;
+        this.idClient = "C" + compteur.getAndIncrement();
         this.comptes = new ArrayList<>();
     }
 
@@ -39,14 +41,15 @@ public class Client extends Personne {
                 .filter(c -> c.getIdCompte().equals(idCompte))
                 .findFirst();
     }
-public String toString() {
-    return "Client { " +
-           "ID = '" + idClient + '\'' +
-           ", Nom = '" + getNom() + '\'' +
-           ", Prénom = '" + getPrenom() + '\'' +
-           ", Email = '" + getEmail() + '\'' +
-           ", Nombre de comptes = " + comptes.size() +
-           " }";
-}
+
+    public String toString() {
+        return "Client { " +
+                "ID = '" + idClient + '\'' +
+                ", Nom = '" + getNom() + '\'' +
+                ", Prénom = '" + getPrenom() + '\'' +
+                ", Email = '" + getEmail() + '\'' +
+                ", Nombre de comptes = " + comptes.size() +
+                " }";
+    }
 
 }
