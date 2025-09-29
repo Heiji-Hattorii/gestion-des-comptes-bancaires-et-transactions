@@ -39,4 +39,14 @@ public class Client extends Personne {
                 .filter(c -> c.getIdCompte().equals(idCompte))
                 .findFirst();
     }
+public String toString() {
+    return "Client { " +
+           "ID = '" + idClient + '\'' +
+           ", Nom = '" + getNom() + '\'' +
+           ", Prénom = '" + getPrenom() + '\'' +
+           ", Email = '" + getEmail() + '\'' +
+           ", Nombre de comptes = " + comptes.size() +
+           " }";
+}
+
 }

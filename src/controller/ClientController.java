@@ -3,6 +3,7 @@ package controller;
 import model.Client;
 import service.ClientService;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -33,5 +34,9 @@ public class ClientController {
 
     public void afficherTousLesClients() {
         clientService.getClients().values().forEach(System.out::println);
+    }
+
+    public List<Client> getAllClients() {
+        return clientService.getAllClients();
     }
 }
